@@ -1,64 +1,118 @@
-// Sum of Two Numbers
 function sum(a, b) {
-  if (typeof a !== 'number' || typeof b !== 'number') {
-    return "Los datos de entrada no son adecuados";
+
+  if (isNaN(a) || isNaN(b)) {
+      return "Por favor, ingresa números válidos.";
   }
-  return a + b;
+
+  var resultado = a + b;
+
+  return resultado;
 }
 
-// Factorial of a Number
+var num1 = parseFloat(prompt("Ingresa el primer número:"));
+var num2 = parseFloat(prompt("Ingresa el segundo número:"));
+
+console.log(sum(num1, num2));
+
+
 function factorial(n) {
-  if (typeof n !== 'number' || n < 0 || Math.floor(n) !== n) {
-    return "Los datos de entrada no son adecuados";
+  if (!Number.isInteger(n) || n < 0) {
+      return "Por favor, ingresa un número entero no negativo.";
   }
-  let result = 1;
-  for (let i = 2; i <= n; i++) {
-    result *= i;
+
+  var resultado = 1;
+  for (var i = 2; i <= n; i++) {
+      resultado *= i;
   }
-  return result;
+
+  return resultado;
 }
 
-// Find the Largest Number
+var num = parseInt(prompt("Ingresa un número para calcular su factorial:"));
+
+console.log(factorial(num));
+
+
+
 function findLargest(arr) {
+
   if (!Array.isArray(arr) || arr.length === 0) {
-    return "Los datos de entrada no son adecuados";
+      return "Por favor, ingresa un array válido.";
   }
-  let largest = arr[0];
-  for (let i = 1; i < arr.length; i++) {
-    if (arr[i] > largest) {
-      largest = arr[i];
-    }
+
+  var max = arr[0];
+  for (var i = 1; i < arr.length; i++) {
+      if (arr[i] > max) {
+          max = arr[i];
+      }
   }
-  return largest;
+
+  return max;
 }
 
-// Count Vowels in a String
+var input = prompt("Ingresa los elementos del array separados por comas:");
+var array = input.split(",").map(function (item) {
+  return parseFloat(item);
+});
+
+console.log("El número más grande es:", findLargest(array));
+
+
+
+
 function countVowels(str) {
+
   if (typeof str !== 'string') {
-    return "Los datos de entrada no son adecuados";
+      return "Por favor, ingresa una cadena válida.";
   }
-  const vowels = 'aeiouAEIOU';
-  let count = 0;
-  for (let char of str) {
-    if (vowels.includes(char)) {
-      count++;
-    }
+
+  str = str.toLowerCase();
+
+
+  var vowels = 'aeiou';
+
+
+  var count = 0;
+
+
+  for (var i = 0; i < str.length; i++) {
+
+      if (vowels.indexOf(str[i]) !== -1) {
+          count++;
+      }
   }
+
+
   return count;
 }
 
-// Check if a Number is Prime
+
+var inputString = prompt("Ingresa una cadena para contar las vocales: ");
+
+
+console.log("El número de vocales en la cadena es: ", countVowels(inputString));
+
+
+
 function isPrime(n) {
-  if (typeof n !== 'number' || n <= 1 || Math.floor(n) !== n) {
-    return "Los datos de entrada no son adecuados";
-  }
-  for (let i = 2; i <= Math.sqrt(n); i++) {
-    if (n % i === 0) {
+
+  if (!Number.isInteger(n) || n <= 1) {
       return false;
-    }
   }
+
+  for (var i = 2; i <= Math.sqrt(n); i++) {
+      if (n % i === 0) {
+          return false;
+      }
+  }
+
   return true;
 }
+
+var num = parseInt(prompt("Ingresa un número para verificar si es primo: "));
+
+console.log("El número ingresado es primo? ", isPrime(num));
+
 
 module.exports = {
   sum,
