@@ -1,37 +1,37 @@
 function sum(a, b) {
 
-  if (isNaN(a) || isNaN(b)) {
-      return "Por favor, ingresa números válidos.";
-  }
-
   var resultado = a + b;
+
 
   return resultado;
 }
 
-var num1 = parseFloat(prompt("Ingresa el primer número:"));
-var num2 = parseFloat(prompt("Ingresa el segundo número:"));
+
+var num1 = 6;
+var num2 = 9;
 
 console.log(sum(num1, num2));
 
 
 function factorial(n) {
+
   if (!Number.isInteger(n) || n < 0) {
       return "Por favor, ingresa un número entero no negativo.";
   }
+
 
   var resultado = 1;
   for (var i = 2; i <= n; i++) {
       resultado *= i;
   }
 
+
   return resultado;
 }
 
-var num = parseInt(prompt("Ingresa un número para calcular su factorial:"));
+var num = 5;
 
 console.log(factorial(num));
-
 
 
 function findLargest(arr) {
@@ -50,14 +50,9 @@ function findLargest(arr) {
   return max;
 }
 
-var input = prompt("Ingresa los elementos del array separados por comas:");
-var array = input.split(",").map(function (item) {
-  return parseFloat(item);
-});
+var staticArray = [5, 10, 3, 8, 20, 15];
 
-console.log("El número más grande es:", findLargest(array));
-
-
+console.log("El número más grande es:", findLargest(staticArray));
 
 
 function countVowels(str) {
@@ -66,6 +61,7 @@ function countVowels(str) {
       return "Por favor, ingresa una cadena válida.";
   }
 
+
   str = str.toLowerCase();
 
 
@@ -73,7 +69,6 @@ function countVowels(str) {
 
 
   var count = 0;
-
 
   for (var i = 0; i < str.length; i++) {
 
@@ -86,12 +81,9 @@ function countVowels(str) {
   return count;
 }
 
+var staticString = "Hello World";
 
-var inputString = prompt("Ingresa una cadena para contar las vocales: ");
-
-
-console.log("El número de vocales en la cadena es: ", countVowels(inputString));
-
+console.log("El número de vocales en la cadena es:", countVowels(staticString));
 
 
 function isPrime(n) {
@@ -100,18 +92,22 @@ function isPrime(n) {
       return false;
   }
 
+
   for (var i = 2; i <= Math.sqrt(n); i++) {
       if (n % i === 0) {
           return false;
       }
   }
 
+
   return true;
 }
 
-var num = parseInt(prompt("Ingresa un número para verificar si es primo: "));
 
-console.log("El número ingresado es primo? ", isPrime(num));
+var num = 29;
+
+console.log("El número ingresado es primo?", isPrime(num));
+
 
 
 module.exports = {
